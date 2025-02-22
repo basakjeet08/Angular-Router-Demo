@@ -1,1 +1,55 @@
-/* You can add global styles to this file, and also import other style files */
+/* Default CSS for the whole webpage */
+@import url("https://fonts.googleapis.com/css2?family=McLaren&display=swap");
+
+:root {
+  --primary-color: #7979fe;
+  --background: #1c1f22;
+  --onBackground: #ffffff;
+  --card: #282b2e;
+  --cardVariant: #494848;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "McLaren", cursive;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+button {
+  padding: 10px 12px;
+  background-color: var(--primary-color);
+
+  border: none;
+  outline: none;
+
+  border-radius: 8px;
+  color: var(--onBackground);
+
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:active {
+  opacity: 0.3;
+}
+
+button:disabled {
+  opacity: 0.5;
+}
+
+input {
+  padding: 10px 12px;
+
+  border-radius: 8px;
+
+  outline: none;
+  border: none;
+}
