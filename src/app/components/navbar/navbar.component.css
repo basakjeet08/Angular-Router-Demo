@@ -1,0 +1,44 @@
+#outer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 16px;
+
+  background-color: var(--card);
+  box-shadow: 5px 5px 15px var(--primary-color);
+}
+
+header {
+  width: 90%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 32px;
+
+  list-style-type: none;
+}
+
+a {
+  display: block;
+
+  padding: 12px;
+
+  color: var(--onBackground);
+  border-radius: 8px;
+
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+  background-color: var(--primary-color);
+}
