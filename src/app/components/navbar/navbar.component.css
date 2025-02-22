@@ -5,8 +5,9 @@
 
   padding: 16px;
 
+  z-index: 1;
   background-color: var(--card);
-  box-shadow: 5px 5px 15px var(--primary-color);
+  box-shadow: 2px 2px 8px var(--primary-color);
 }
 
 header {
@@ -41,4 +42,8 @@ a {
 
 a:hover {
   background-color: var(--primary-color);
+}
+
+a:active {
+  opacity: 0.2;
 }

@@ -14,5 +14,9 @@
 
 main {
   flex: 1;
-  padding: 12px;
+
+  display: flex;
+  justify-content: center;
+
+  padding: 24px 0px;
 }

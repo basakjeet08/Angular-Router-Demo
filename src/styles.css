@@ -7,6 +7,7 @@
   --onBackground: #ffffff;
   --card: #282b2e;
   --cardVariant: #494848;
+  --deleteColor: rgb(241, 61, 61);
 }
 
 * {
@@ -27,9 +28,10 @@ button {
   border: none;
   outline: none;
 
-  border-radius: 8px;
+  border-radius: 6px;
   color: var(--onBackground);
 
+  cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
 
@@ -52,4 +54,10 @@ input {
 
   outline: none;
   border: none;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--primary-color);
 }

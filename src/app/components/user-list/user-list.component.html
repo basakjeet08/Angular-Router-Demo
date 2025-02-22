@@ -1,1 +1,27 @@
-<p>user-list works!</p>
+<div id="outer-container">
+  <div id="center-container">
+    <button (click)="onCreateUserClick()">Create a new User</button>
+
+    <div
+      class="user-item-container"
+      *ngFor="let user of userList; let i = index"
+    >
+      <!-- Card Component -->
+      <div class="user-item-card">
+        <!-- This is the title container which contains the user name and the delete button -->
+        <div class="title-container">
+          <h3>{{ user.name }}</h3>
+          <button class="delete-btn" (click)="onDeleteUserClick(i)">
+            Delete
+          </button>
+        </div>
+
+        <!-- User description -->
+        <p>{{ user.description }}</p>
+      </div>
+
+      <!-- Line Break Component -->
+      <hr />
+    </div>
+  </div>
+</div>
