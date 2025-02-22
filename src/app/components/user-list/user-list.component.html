@@ -1,27 +1,40 @@
 <div id="outer-container">
   <div id="center-container">
-    <button (click)="onCreateUserClick()">Create a new User</button>
+    <div id="heading-container">
+      <h2>User List</h2>
+      <button (click)="onCreateUserClick()">Create a new User</button>
+    </div>
 
     <div
       class="user-item-container"
       *ngFor="let user of userList; let i = index"
     >
+      <!-- Line Break -->
+      <hr />
+
       <!-- Card Component -->
       <div class="user-item-card">
         <!-- This is the title container which contains the user name and the delete button -->
         <div class="title-container">
           <h3>{{ user.name }}</h3>
-          <button class="delete-btn" (click)="onDeleteUserClick(i)">
-            Delete
-          </button>
+
+          <!-- Container containing the Show More and Delete Button -->
+          <div class="button-container">
+            <button class="details-btn" (click)="onShowMoreClick(i)">
+              Show More
+            </button>
+            <button class="delete-btn" (click)="onDeleteUserClick(i)">
+              Delete
+            </button>
+          </div>
         </div>
 
         <!-- User description -->
         <p>{{ user.description }}</p>
       </div>
-
-      <!-- Line Break Component -->
-      <hr />
     </div>
+
+    <!-- Line Break -->
+    <hr />
   </div>
 </div>

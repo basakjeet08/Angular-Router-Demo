@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { OrganisationListComponent } from './components/organisation-list/organisation-list.component';
+import { UserService } from './services/user.service';
 
 // This is the routing for the current module
 const routes: Routes = [
@@ -23,7 +24,7 @@ const routes: Routes = [
     OrganisationListComponent,
   ],
   imports: [BrowserModule, RouterModule.forRoot(routes)],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

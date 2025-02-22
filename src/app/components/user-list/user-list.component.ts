@@ -1,34 +1,51 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { User } from 'src/app/Models/User';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css'],
 })
-export class UserListComponent {
-  // Dummy Data to be shown in the UI For now
-  userList = [
-    {
-      name: 'Anirban Basak 01',
-      description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos ipsa repellat praesentium perferendis magni perspiciatis, laudantium earum dolorem deserunt dicta error quis, accusamus atque enim ex molestiae, quas minima voluptates.`,
-    },
-    {
-      name: 'Anirban Basak 02',
-      description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos ipsa repellat praesentium perferendis magni perspiciatis, laudantium earum dolorem deserunt dicta error quis, accusamus atque enim ex molestiae, quas minima voluptates.`,
-    },
-    {
-      name: 'Anirban Basak 03',
-      description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos ipsa repellat praesentium perferendis magni perspiciatis, laudantium earum dolorem deserunt dicta error quis, accusamus atque enim ex molestiae, quas minima voluptates.`,
-    },
-  ];
+export class UserListComponent implements OnInit, OnDestroy {
+  // User List which is being sent from the service along with the subscription for changes for the user List value
+  userList: User[] = [];
+  private userListSubscription!: Subscription;
+
+  // Injecting the user service
+  constructor(private userService: UserService) {}
+
+  // Initializing the user list data from the service and subscribing to the userlist data
+  ngOnInit(): void {
+    // Fetching initial values
+    this.userList = this.userService.getUserList();
+
+    // Subscribing for future data changes
+    this.userListSubscription = this.userService.userListEmitter.subscribe(
+      (userList: User[]) => {
+        this.userList = userList;
+      }
+    );
+  }
 
   // This function is invoked when the user wants to create a new user
   onCreateUserClick() {
     alert('Create User Clicked');
   }
 
+  // This function is invoked when the show More button is clicked
+  onShowMoreClick(index: number) {
+    alert(`Show Details for Index ${index} is clicked !!`);
+  }
+
   // This function is invoked when the user wants to delete an user
   onDeleteUserClick(index: number) {
-    alert(`Delete user on Index ${index} is clicked !!`);
+    this.userService.deleteUser(index);
+  }
+
+  // This function is used to unsubscribe to any open event emitters
+  ngOnDestroy(): void {
+    this.userListSubscription.unsubscribe();
   }
 }
