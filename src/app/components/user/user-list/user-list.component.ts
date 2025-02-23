@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { User } from 'src/app/Models/User';
 import { UserService } from 'src/app/services/user.service';
@@ -13,8 +14,12 @@ export class UserListComponent implements OnInit, OnDestroy {
   userList: User[] = [];
   private userListSubscription!: Subscription;
 
-  // Injecting the user service
-  constructor(private userService: UserService) {}
+  // Injecting the user service, router and current route
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   // Initializing the user list data from the service and subscribing to the userlist data
   ngOnInit(): void {
@@ -29,14 +34,9 @@ export class UserListComponent implements OnInit, OnDestroy {
     );
   }
 
-  // This function is invoked when the user wants to create a new user
-  onCreateUserClick() {
-    alert('Create User Clicked');
-  }
-
   // This function is invoked when the show More button is clicked
   onShowMoreClick(index: number) {
-    alert(`Show Details for Index ${index} is clicked !!`);
+    this.router.navigate(['detail'], { relativeTo: this.route });
   }
 
   // This function is invoked when the user wants to delete an user

@@ -1,0 +1,29 @@
+#outer-container {
+  min-width: 100vw;
+
+  display: flex;
+  justify-content: center;
+}
+
+#center-container {
+  width: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 10px;
+}
+
+#heading-container {
+  width: 60%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+hr {
+  width: 50%;
+  border: 1px dashed var(--cardVariant);
+}
