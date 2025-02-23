@@ -1,1 +1,27 @@
-<p>team-list works!</p>
+<div id="outer-container">
+  <div class="team-item-container" *ngFor="let team of teamList">
+    <!-- Card Component -->
+    <div class="team-item-card">
+      <!-- This is the title container which contains the team name and the delete button -->
+      <div class="title-container">
+        <h3>{{ team.name }}</h3>
+
+        <!-- Container containing the Show More and Delete Button -->
+        <div class="button-container">
+          <button class="details-btn" (click)="onShowMoreClick(team.uid)">
+            Show More
+          </button>
+          <button class="delete-btn" (click)="onDeleteTeamClick(team.uid)">
+            Delete
+          </button>
+        </div>
+      </div>
+
+      <!-- Team description -->
+      <p>{{ team.description }}</p>
+    </div>
+
+    <!-- Line Break -->
+    <hr />
+  </div>
+</div>

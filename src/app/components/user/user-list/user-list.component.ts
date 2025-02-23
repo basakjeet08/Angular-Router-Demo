@@ -35,8 +35,8 @@ export class UserListComponent implements OnInit, OnDestroy {
   }
 
   // This function is invoked when the show More button is clicked
-  onShowMoreClick(index: number) {
-    this.router.navigate(['detail', this.userList[index].uid], {
+  onShowMoreClick(uid: string) {
+    this.router.navigate(['detail', uid], {
       relativeTo: this.route,
     });
   }

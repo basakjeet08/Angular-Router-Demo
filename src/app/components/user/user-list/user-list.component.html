@@ -1,5 +1,5 @@
 <div id="outer-container">
-  <div class="user-item-container" *ngFor="let user of userList; let i = index">
+  <div class="user-item-container" *ngFor="let user of userList">
     <!-- Card Component -->
     <div class="user-item-card">
       <!-- This is the title container which contains the user name and the delete button -->
@@ -8,7 +8,7 @@
 
         <!-- Container containing the Show More and Delete Button -->
         <div class="button-container">
-          <button class="details-btn" (click)="onShowMoreClick(i)">
+          <button class="details-btn" (click)="onShowMoreClick(user.uid)">
             Show More
           </button>
           <button class="delete-btn" (click)="onDeleteUserClick(user.uid)">
