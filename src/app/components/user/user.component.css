@@ -1,12 +1,5 @@
 #outer-container {
-  min-width: 100vw;
-
-  display: flex;
-  justify-content: center;
-}
-
-#center-container {
-  width: 50%;
+  width: 50vw;
 
   display: flex;
   flex-direction: column;

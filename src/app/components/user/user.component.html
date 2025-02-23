@@ -1,14 +1,12 @@
 <div id="outer-container">
-  <div id="center-container">
-    <div id="heading-container">
-      <h2>User List View</h2>
-      <button (click)="onCreateUserClick()">Create a new User</button>
-    </div>
-
-    <!-- Line Break -->
-    <hr />
-
-    <!-- Routing for the nested childs in users (create , details , list) -->
-    <router-outlet />
+  <div id="heading-container">
+    <h2>User List View</h2>
+    <button (click)="onCreateUserClick()">Create a new User</button>
   </div>
+
+  <!-- Line Break -->
+  <hr />
+
+  <!-- Routing for the nested childs in users (create , details , list) -->
+  <router-outlet />
 </div>

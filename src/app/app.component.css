@@ -20,3 +20,10 @@ main {
 
   padding: 24px 0px;
 }
+
+#center-container {
+  width: 50vw;
+
+  display: flex;
+  justify-content: center;
+}
