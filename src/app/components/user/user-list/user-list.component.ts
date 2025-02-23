@@ -36,12 +36,14 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   // This function is invoked when the show More button is clicked
   onShowMoreClick(index: number) {
-    this.router.navigate(['detail'], { relativeTo: this.route });
+    this.router.navigate(['detail', this.userList[index].uid], {
+      relativeTo: this.route,
+    });
   }
 
   // This function is invoked when the user wants to delete an user
-  onDeleteUserClick(index: number) {
-    this.userService.deleteUser(index);
+  onDeleteUserClick(uid: string) {
+    this.userService.deleteUser(uid);
   }
 
   // This function is used to unsubscribe to any open event emitters

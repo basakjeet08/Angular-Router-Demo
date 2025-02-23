@@ -1,1 +1,35 @@
-<p>user-detail works!</p>
+<div id="outer-container">
+  <!-- Image Container -->
+  <div id="image-container">
+    <!-- Image -->
+    <img [src]="userData?.imageUrl" alt="User Image" />
+  </div>
+
+  <!-- User Details Container -->
+  <div id="user-details-container">
+    <!-- Title Container containing the Name and the horizontal line -->
+    <div id="title">
+      <!-- Full Name  -->
+      <h3>{{ userData?.firstName + " " + userData?.lastName }}</h3>
+
+      <hr />
+    </div>
+
+    <!-- User Description Container  -->
+    <div id="description">
+      <!-- Username -->
+      <p>Username - {{ userData?.username }}</p>
+
+      <!-- Gender -->
+      <p>Gender - {{ userData?.gender }}</p>
+
+      <!-- Description  -->
+      <p>{{ userData?.description }}</p>
+    </div>
+
+    <!-- Delete Button -->
+    <button id="delete-btn" (click)="onDeleteClick()">
+      Delete User and go back to User List
+    </button>
+  </div>
+</div>
