@@ -11,17 +11,29 @@ export class UserService {
   constructor() {
     this.userList = [
       new User(
+        'Anirban',
+        'Basak 01',
+        'anirban_0_0',
+        'Male',
         'Anirban Basak 01',
         `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos ipsa repellat praesentium perferendis magni perspiciatis, laudantium earum dolorem deserunt dicta error quis, accusamus atque enim ex molestiae, quas minima voluptates.`
       ),
 
       new User(
-        'Anirban Basak 02',
+        'Anirban',
+        'Basak 02',
+        'anirban_0_0',
+        'Male',
+        'Anirban Basak 01',
         `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos ipsa repellat praesentium perferendis magni perspiciatis, laudantium earum dolorem deserunt dicta error quis, accusamus atque enim ex molestiae, quas minima voluptates.`
       ),
 
       new User(
-        'Anirban Basak 03',
+        'Anirban',
+        'Basak 03',
+        'anirban_0_0',
+        'Male',
+        'Anirban Basak 01',
         `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos ipsa repellat praesentium perferendis magni perspiciatis, laudantium earum dolorem deserunt dicta error quis, accusamus atque enim ex molestiae, quas minima voluptates.`
       ),
     ];
@@ -31,8 +43,8 @@ export class UserService {
   getUserList = () => [...this.userList];
 
   // This function creates a new User
-  createUser(name: string, description: string) {
-    this.userList.push(new User(name, description));
+  createUser(user: User) {
+    this.userList.push(user);
     this.userListEmitter.emit(this.getUserList());
   }
 

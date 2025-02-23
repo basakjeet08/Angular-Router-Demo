@@ -10,6 +10,7 @@ import { UserService } from './services/user.service';
 import { UserComponent } from './components/user/user.component';
 import { CreateUserComponent } from './components/user/create-user/create-user.component';
 import { UserDetailComponent } from './components/user/user-detail/user-detail.component';
+import { FormsModule } from '@angular/forms';
 
 // This is the routing for the current module
 const routes: Routes = [
@@ -37,7 +38,7 @@ const routes: Routes = [
     CreateUserComponent,
     UserDetailComponent,
   ],
-  imports: [BrowserModule, RouterModule.forRoot(routes)],
+  imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes)],
   providers: [UserService],
   bootstrap: [AppComponent],
 })

@@ -56,8 +56,6 @@ h3 {
 
 input,
 textarea {
-  min-width: 350px;
-
   padding: 10px 12px;
   border-radius: 6px;
   outline: none;
@@ -67,6 +65,8 @@ textarea {
 }
 
 textarea {
+  min-width: 350px;
+
   min-height: 150px;
   resize: vertical;
   line-height: 1.5;

@@ -13,3 +13,18 @@
 #submit-btn {
   background-color: var(--confirmColor);
 }
+
+.row-input-container {
+  display: flex;
+  align-items: center;
+
+  gap: 24px;
+}
+
+label {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+  cursor: pointer;
+}

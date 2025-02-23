@@ -1,11 +1,73 @@
 <div id="outer-container">
   <h3>Create User</h3>
 
-  <!-- User name field -->
-  <input type="text" placeholder="Enter the name" #nameInput />
+  <!-- First name and last name field -->
+  <div class="row-input-container">
+    <!-- First Name -->
+    <input
+      type="text"
+      placeholder="Enter First name"
+      [(ngModel)]="userInput.firstName"
+      required
+    />
+
+    <!-- Last Name -->
+    <input
+      type="text"
+      placeholder="Enter Last name"
+      [(ngModel)]="userInput.lastName"
+      required
+    />
+  </div>
+
+  <!-- User Gender Field -->
+  <div class="row-input-container">
+    <!-- Username Input Field -->
+    <input
+      type="text"
+      placeholder="Enter Username"
+      [(ngModel)]="userInput.username"
+      required
+    />
+
+    <!-- Gender of the user -->
+    <!-- Male Gender -->
+    <label>
+      <input
+        type="radio"
+        name="gender"
+        value="Male"
+        [(ngModel)]="userInput.gender"
+      />
+      Male
+    </label>
+
+    <!-- Female Gender -->
+    <label>
+      <input
+        type="radio"
+        name="gender"
+        value="Female"
+        [(ngModel)]="userInput.gender"
+      />
+      Female
+    </label>
+  </div>
+
+  <!-- Attach Image Url -->
+  <input
+    type="text"
+    placeholder="Enter Image Url"
+    [(ngModel)]="userInput.imageUrl"
+    required
+  />
 
   <!-- User Description Field -->
-  <textarea placeholder="Enter the description" #descriptionInput></textarea>
+  <textarea
+    placeholder="Enter the description"
+    [(ngModel)]="userInput.description"
+    required
+  ></textarea>
 
   <!-- Button to create the user -->
   <button id="submit-btn" (click)="onCreateClick()">Create User</button>
