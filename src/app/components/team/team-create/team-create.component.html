@@ -1,1 +1,29 @@
-<p>team-create works!</p>
+<div id="outer-container">
+  <h3>Create User</h3>
+
+  <!-- Name -->
+  <input
+    type="text"
+    placeholder="Enter Name"
+    [(ngModel)]="userInput.name"
+    required
+  />
+
+  <!-- Attach Image Url -->
+  <input
+    type="text"
+    placeholder="Enter Image Url"
+    [(ngModel)]="userInput.imageUrl"
+    required
+  />
+
+  <!-- User Description Field -->
+  <textarea
+    placeholder="Enter the description"
+    [(ngModel)]="userInput.description"
+    required
+  ></textarea>
+
+  <!-- Button to create the user -->
+  <button id="submit-btn" (click)="onCreateClick()">Create User</button>
+</div>

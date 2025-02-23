@@ -1,0 +1,15 @@
+#outer-container {
+  display: flex;
+  flex-direction: column;
+
+  padding: 40px;
+  gap: 24px;
+
+  border-radius: 6px;
+  background-color: var(--card);
+  transition: all 0.3s ease-in-out;
+}
+
+#submit-btn {
+  background-color: var(--confirmColor);
+}
