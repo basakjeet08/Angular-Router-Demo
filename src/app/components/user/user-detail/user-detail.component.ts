@@ -38,7 +38,7 @@ export class UserDetailComponent implements OnInit, OnDestroy {
   // This function is invoked when we click the delete button
   onDeleteClick() {
     if (!this.userData?.uid) return;
-    this.userService.deleteUser(this.userData?.uid);
+    this.userService.deleteUser(this.userData.uid);
 
     // Navigating back to the user list screen
     this.navigateToUserList();

@@ -1,1 +1,29 @@
-<p>team-detail works!</p>
+<div id="outer-container">
+  <!-- Image Container -->
+  <div id="image-container">
+    <!-- Image -->
+    <img [src]="teamData?.imageUrl" alt="Team Image" />
+  </div>
+
+  <!-- Team Details Container -->
+  <div id="team-details-container">
+    <!-- Title Container containing the Name and the horizontal line -->
+    <div id="title">
+      <!-- Full Name  -->
+      <h3>{{ teamData?.name }}</h3>
+
+      <hr />
+    </div>
+
+    <!-- team Description Container  -->
+    <div id="description">
+      <!-- Description  -->
+      <p>{{ teamData?.description }}</p>
+    </div>
+
+    <!-- Delete Button -->
+    <button id="delete-btn" (click)="onDeleteClick()">
+      Delete Team and go back to Team List
+    </button>
+  </div>
+</div>
