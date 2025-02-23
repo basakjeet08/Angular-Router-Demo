@@ -48,17 +48,31 @@ button:disabled {
   opacity: 0.5;
 }
 
-input {
-  padding: 10px 12px;
-
-  border-radius: 8px;
-
-  outline: none;
-  border: none;
-}
-
 h1,
 h2,
 h3 {
   color: var(--primary-color);
+}
+
+input,
+textarea {
+  min-width: 350px;
+
+  padding: 10px 12px;
+  border-radius: 6px;
+  outline: none;
+  border: 1px solid var(--cardVariant);
+  color: var(--onBackground);
+  background-color: transparent;
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+input:focus,
+textarea:focus {
+  border: 1px solid var(--primary-color);
 }
