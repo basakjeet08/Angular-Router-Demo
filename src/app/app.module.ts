@@ -14,6 +14,7 @@ import { TeamComponent } from './components/team/team.component';
 import { TeamListComponent } from './components/team/team-list/team-list.component';
 import { TeamCreateComponent } from './components/team/team-create/team-create.component';
 import { TeamDetailComponent } from './components/team/team-detail/team-detail.component';
+import { ItemCardComponent } from './components/item-card/item-card.component';
 
 // This is the routing for the current module
 const routes: Routes = [
@@ -51,6 +52,7 @@ const routes: Routes = [
     TeamListComponent,
     TeamCreateComponent,
     TeamDetailComponent,
+    ItemCardComponent,
   ],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes)],
   providers: [UserService],

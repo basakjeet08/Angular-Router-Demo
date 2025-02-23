@@ -1,25 +1,12 @@
 <div id="outer-container">
   <div class="user-item-container" *ngFor="let user of userList">
     <!-- Card Component -->
-    <div class="user-item-card">
-      <!-- This is the title container which contains the user name and the delete button -->
-      <div class="title-container">
-        <h3>{{ user.firstName + " " + user.lastName }}</h3>
-
-        <!-- Container containing the Show More and Delete Button -->
-        <div class="button-container">
-          <button class="details-btn" (click)="onShowMoreClick(user.uid)">
-            Show More
-          </button>
-          <button class="delete-btn" (click)="onDeleteUserClick(user.uid)">
-            Delete
-          </button>
-        </div>
-      </div>
-
-      <!-- User description -->
-      <p>{{ user.description }}</p>
-    </div>
+    <app-item-card
+      [title]="user.firstName + ' ' + user.lastName"
+      [description]="user.description"
+      (showMoreEvent)="onShowMoreClick(user.uid)"
+      (deleteEvent)="onDeleteUserClick(user.uid)"
+    />
 
     <!-- Line Break -->
     <hr />
