@@ -1,0 +1,12 @@
+<div id="outer-container">
+  <div id="heading-container">
+    <h2>Team List View</h2>
+    <button (click)="onCreateTeamClick()">Create a new Team</button>
+  </div>
+
+  <!-- Line Break -->
+  <hr />
+
+  <!-- Routing for the nested childs in teams (create , details , list) -->
+  <router-outlet />
+</div>
