@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/Models/User';
 import { UserService } from 'src/app/services/user.service';
@@ -10,69 +11,34 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class CreateUserComponent {
   // User Input Variable to store user input
-  userInput = {
-    firstName: '',
-    lastName: '',
-    username: '',
-    gender: '',
-    imageUrl: '',
-    description: '',
-  };
+  createUserForm: FormGroup;
 
   // Injecting the user service , routers and current active route
   constructor(
     private userService: UserService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
-
-  // This function checks if the user input are valid or not
-  isInputValid(): boolean {
-    // User firstname , lastname and username input are validated
-    if (
-      !this.userInput.firstName ||
-      !this.userInput.lastName ||
-      !this.userInput.username
-    ) {
-      alert('Check firstname , lastname and username. They cant be Empty !!');
-      return false;
-    }
-
-    // User Gender is validated
-    if (!this.userInput.gender) {
-      alert('User Gender not choosen');
-      return false;
-    }
-
-    // User image url is validated
-    if (!this.userInput.imageUrl) {
-      alert('Image not provided');
-      return false;
-    }
-
-    // User description is validated
-    if (!this.userInput.description) {
-      alert('User Description cannot be empty');
-      return false;
-    }
-
-    return true;
+  ) {
+    this.createUserForm = new FormGroup({
+      firstName: new FormControl(null, Validators.required),
+      lastName: new FormControl(null, Validators.required),
+      username: new FormControl(null, Validators.required),
+      gender: new FormControl(null, Validators.required),
+      imageUrl: new FormControl(null, Validators.required),
+      description: new FormControl(null, Validators.required),
+    });
   }
 
   // This function is invoked when the user clicks on the create user button
   onCreateClick() {
-    if (!this.isInputValid()) {
-      return;
-    }
-
     // Converting the userInput into a User Object
     const user = new User(
-      this.userInput.firstName,
-      this.userInput.lastName,
-      this.userInput.username,
-      this.userInput.gender,
-      this.userInput.imageUrl,
-      this.userInput.description
+      this.createUserForm.get('firstName')?.value,
+      this.createUserForm.get('lastName')?.value,
+      this.createUserForm.get('username')?.value,
+      this.createUserForm.get('gender')?.value,
+      this.createUserForm.get('imageUrl')?.value,
+      this.createUserForm.get('description')?.value
     );
 
     // Sending a create user request to the service

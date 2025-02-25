@@ -28,3 +28,13 @@ label {
   gap: 8px;
   cursor: pointer;
 }
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border: 1px dashed rgb(216, 63, 63);
+}
+
+.error-text {
+  font-size: 12px;
+  color: rgb(216, 63, 63);
+}

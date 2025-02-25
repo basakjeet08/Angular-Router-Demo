@@ -1,4 +1,8 @@
-<div id="outer-container">
+<form
+  id="outer-container"
+  [formGroup]="createUserForm"
+  (ngSubmit)="onCreateClick()"
+>
   <h3>Create User</h3>
 
   <!-- First name and last name field -->
@@ -7,16 +11,14 @@
     <input
       type="text"
       placeholder="Enter First name"
-      [(ngModel)]="userInput.firstName"
-      required
+      formControlName="firstName"
     />
 
     <!-- Last Name -->
     <input
       type="text"
       placeholder="Enter Last name"
-      [(ngModel)]="userInput.lastName"
-      required
+      formControlName="lastName"
     />
   </div>
 
@@ -26,19 +28,13 @@
     <input
       type="text"
       placeholder="Enter Username"
-      [(ngModel)]="userInput.username"
-      required
+      formControlName="username"
     />
 
     <!-- Gender of the user -->
     <!-- Male Gender -->
     <label>
-      <input
-        type="radio"
-        name="gender"
-        value="Male"
-        [(ngModel)]="userInput.gender"
-      />
+      <input type="radio" name="gender" value="Male" formControlName="gender" />
       Male
     </label>
 
@@ -48,27 +44,27 @@
         type="radio"
         name="gender"
         value="Female"
-        [(ngModel)]="userInput.gender"
+        formControlName="gender"
       />
       Female
     </label>
   </div>
 
   <!-- Attach Image Url -->
-  <input
-    type="text"
-    placeholder="Enter Image Url"
-    [(ngModel)]="userInput.imageUrl"
-    required
-  />
+  <input type="text" placeholder="Enter Image Url" formControlName="imageUrl" />
 
   <!-- User Description Field -->
   <textarea
     placeholder="Enter the description"
-    [(ngModel)]="userInput.description"
-    required
+    formControlName="description"
   ></textarea>
 
+  <p class="error-text" *ngIf="!createUserForm.valid && createUserForm.touched">
+    Please Fill All the fields !!
+  </p>
+
   <!-- Button to create the user -->
-  <button id="submit-btn" (click)="onCreateClick()">Create User</button>
-</div>
+  <button id="submit-btn" [disabled]="!createUserForm.valid">
+    Create User
+  </button>
+</form>

@@ -9,7 +9,7 @@ import { UserService } from './services/user.service';
 import { UserComponent } from './components/user/user.component';
 import { CreateUserComponent } from './components/user/create-user/create-user.component';
 import { UserDetailComponent } from './components/user/user-detail/user-detail.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TeamComponent } from './components/team/team.component';
 import { TeamListComponent } from './components/team/team-list/team-list.component';
 import { TeamCreateComponent } from './components/team/team-create/team-create.component';
@@ -54,7 +54,12 @@ const routes: Routes = [
     TeamDetailComponent,
     ItemCardComponent,
   ],
-  imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes)],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(routes),
+    ReactiveFormsModule,
+  ],
   providers: [UserService],
   bootstrap: [AppComponent],
 })
